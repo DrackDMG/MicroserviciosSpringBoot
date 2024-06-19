@@ -1,6 +1,7 @@
 package com.microservice.service;
 
 import com.microservice.entities.Course;
+import com.microservice.http.response.StudentByCourseResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface CourseService {
     public Course findById(Long id);
 
     void save(Course course);
+
+    StudentByCourseResponse findStudentsByCourse(Long courseId);
 }

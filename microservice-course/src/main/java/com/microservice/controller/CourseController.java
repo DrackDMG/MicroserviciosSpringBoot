@@ -4,6 +4,7 @@ import com.microservice.entities.Course;
 import com.microservice.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,11 @@ public class CourseController {
     @GetMapping
     public List<Course> findAll(){
         return courseService.findAll();
+    }
+
+    @GetMapping("/{courseId}/students")
+    public ResponseEntity<?> findStudentsByCourse(@PathVariable Long courseId){
+        return ResponseEntity.ok(courseService.findStudentsByCourse(courseId));
     }
 
 }
